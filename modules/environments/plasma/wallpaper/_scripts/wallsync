@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+HOME_DIR="$HOME/Assets/Homescreen"
+LOCK_DIR="$HOME/Assets/Lockscreen"
+GREET_DIR="$HOME/Assets/Greeter"
+PLASMA_CONFIG="$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc"
+
+mkdir -p "$HOME_DIR" "$LOCK_DIR" "$GREET_DIR"
+
+last=""
+
+get_wallpaper() {
+  qdbus \
+    org.kde.plasmashell \
+    /PlasmaShell \
+    org.kde.PlasmaShell.wallpaper 0 \
+    2>/dev/null |
+  awk -F': ' '
+    /^Image:/ {
+      sub(/^file:\/\//,"",$2)
+      print $2
+      exit
+    }
+  ' || true
+}
+
+update_wallpaper() {
+  local wallpaper="$1"
+  [[ -f "$wallpaper" ]] || return 0
+
+  if [[ "$(readlink -f "$HOME_DIR/current" 2>/dev/null)" != "$wallpaper" ]]; then
+    ln -sfn "$wallpaper" "$HOME_DIR/current"
+  fi
+
+  if [[ ! -e "$LOCK_DIR/override.jpg" ]]; then
+    cmp -s "$wallpaper" "$LOCK_DIR/current.jpg" 2>/dev/null \
+      || install -m644 "$wallpaper" "$LOCK_DIR/current.jpg"
+  fi
+
+  if [[ ! -e "$GREET_DIR/override.jpg" ]]; then
+    cmp -s "$wallpaper" "$GREET_DIR/current.jpg" 2>/dev/null \
+      || install -m644 "$wallpaper" "$GREET_DIR/current.jpg"
+  fi
+
+  kwriteconfig6 \
+    --file "$HOME/.config/kscreenlockerrc" \
+    --group Greeter \
+    --group Wallpaper \
+    --group org.kde.image \
+    --group General \
+    --key Image "file://$LOCK_DIR/current.jpg"
+
+  kwriteconfig6 \
+    --file "$HOME/.config/kscreenlockerrc" \
+    --group Greeter \
+    --group Wallpaper \
+    --group org.kde.image \
+    --group General \
+    --key PreviewImage "file://$LOCK_DIR/current.jpg"
+
+  # Signal kscreenlocker to reload — no-op if the screensaver isn't running
+  qdbus org.kde.screensaver /ScreenSaver configure 2>/dev/null || true
+}
+
+sync_once() {
+  local wallpaper
+  wallpaper="$(get_wallpaper)"
+  [[ -n "$wallpaper" ]] || return 0
+  [[ -f "$wallpaper" ]] || return 0
+  [[ "$wallpaper" == "$last" ]] && return 0
+  last="$wallpaper"
+  update_wallpaper "$wallpaper"
+}
+
+sync_once
+
+(
+  while true; do
+    inotifywait \
+      -qq \
+      -e close_write \
+      -e moved_to \
+      "$PLASMA_CONFIG" \
+      >/dev/null 2>&1 || true
+    sync_once
+  done
+) &
+
+while true; do
+  sync_once
+  sleep 5
+done

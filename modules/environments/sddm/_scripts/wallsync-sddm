@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SRC="/home/@USERNAME@/Assets/Greeter"
+DST_DIR="/var/lib/sddm"
+DST="$DST_DIR/wallpaper.jpg"
+
+install -d -m755 "$DST_DIR"
+
+if [[ -f "$SRC/override.jpg" ]]; then
+    install -Dm644 "$SRC/override.jpg" "$DST"
+elif [[ -f "$SRC/current.jpg" ]]; then
+    install -Dm644 "$SRC/current.jpg" "$DST"
+else
+    echo "No wallpaper found in $SRC"
+    exit 1
+fi
+
+chown sddm:sddm "$DST"
+chmod 644 "$DST"
