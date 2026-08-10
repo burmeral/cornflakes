@@ -37,10 +37,4 @@
   services.easyeffects = {
     enable = true;
   };
-
-  # mpd
-  services.mpd = {
-    enable = true;
-    musicDirectory = "/home/ram/Music";
-  };
 }

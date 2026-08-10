@@ -15,7 +15,6 @@
 
       # Utilities
       khal         # calendar
-      rmpc         # crank that soulja boy
       btop         # process mon
       lazygit      # git for bums
 

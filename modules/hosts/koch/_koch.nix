@@ -51,6 +51,7 @@
 
       # cloud sync
       syncthing 
+      ssh
 
       # sandbox
       vm

@@ -8,6 +8,11 @@
       # daw
       # reaper
 
+      # services
+      mpd
+      mpc
+      rmpc
+
       # formater
       ffmpeg
 
@@ -20,5 +25,14 @@
       kid3
 
     ];
+
+    # mpd
+    services.mpd = {
+      enable = true;
+      user = "ram";
+      settings = {
+        music_directory = "/home/ram/Music";
+      };
+    };
   };
 }

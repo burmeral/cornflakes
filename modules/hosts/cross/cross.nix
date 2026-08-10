@@ -62,6 +62,7 @@
 
       # cloud sync
       syncthing 
+      ssh
 
       # packages
       terminal
@@ -70,7 +71,7 @@
 
       # media tools
       # media
-      # music
+      music
 
       # games
       steam
