@@ -14,6 +14,7 @@
     environment.systemPackages = with pkgs; [
       gamemode
       steam-rom-manager
+      love
     ];
 
     # Steam hardware acceleration

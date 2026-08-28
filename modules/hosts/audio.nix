@@ -10,6 +10,7 @@
       pavucontrol
       playerctl
       libdbusmenu-gtk3
+      pulseaudio
     ];
 
     services.pipewire = {

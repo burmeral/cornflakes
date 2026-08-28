@@ -8,14 +8,17 @@
       # GameCube/Wii
       dolphin-emu
 
+      # Wii U
+      cemu
+
+      # 3DS
+      azahar
+
       # PlayStation 2
       pcsx2
 
       # PlayStation 3
       rpcs3
-
-      # 3DS
-      azahar
 
       # Multi-system frontend
       retroarch-full

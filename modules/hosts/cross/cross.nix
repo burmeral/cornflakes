@@ -13,7 +13,6 @@
 
       # host
       ./_hardware-configuration.nix
-      boot
       ./_session.nix
  
       # jovian
@@ -27,6 +26,7 @@
         jovian = {
           devices.steamdeck.enable = true;
           devices.steamdeck.enableGyroDsuService = true;
+          decky-loader.enable = true;
           steam = {
             enable = true;
             autoStart = true;

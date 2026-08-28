@@ -33,8 +33,17 @@
     anki-bin
   ];
 
-  # easyeffects
-  services.easyeffects = {
+  # cursor
+  home.pointerCursor = {
     enable = true;
+    name = "Apple";
+    package = pkgs.apple-cursor;
+    size = 24;
+    gtk.enable = true;
   };
+
+  # easyeffects
+  # services.easyeffects = {
+  #   enable = true;
+  # };
 }
