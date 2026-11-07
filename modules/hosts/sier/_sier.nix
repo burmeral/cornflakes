@@ -36,9 +36,7 @@
       ethernet
       print
       intl
-
-      # greeter
-      sddm
+      greeter
 
       # desktop environments
       hypr

@@ -35,11 +35,9 @@
       bluetooth
       wifi 
       print
-      portable
       intl
-
-      # greeter
-      sddm
+      portable
+      greeter
 
       # desktop environments
       hypr

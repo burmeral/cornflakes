@@ -19,7 +19,7 @@
           owner = "burmeral";
           repo = "hyprland-infinitie-desktop-v2";
           rev = "main";
-          hash = "sha256-U2gunAI1DbdT9+BE1Ngd87R9qwWgBPNmVlmjJCKTDO4=";
+          hash = "sha256-UhN1qocNBs0OaIf+T/PloMHstlCEcLEd6WjRKqcGCTg=";
         };
 
         nativeBuildInputs = [
@@ -44,20 +44,13 @@
               "$out/bin/$(basename "$script")"
           done
 
-          install -Dm755 scripts/infinite-desktop.sh \
-            "$out/bin/infinite-desktop"
-
           install -Dm755 scripts/discover_hyprland_api.sh \
             "$out/share/hyprland-infinite-desktop/discover_hyprland_api.sh"
 
-          # Only the launcher needs wrapping to provide its runtime
-          # dependencies.
-          wrapProgram "$out/bin/infinite-desktop" \
-            --prefix PATH : "${lib.makeBinPath [
-              pkgs.bash
-              pkgs.jq
-              pythonEnv
-            ]}"
+          # Run the core directly: infinite-desktop.sh gates startup on
+          # device *names*, while the core already detects by capability.
+          makeWrapper ${pythonEnv}/bin/python3 "$out/bin/infinite-desktop" \
+            --add-flags "$out/bin/infinite_desktop_core.py 1.6"
 
           runHook postInstall
         '';

@@ -5,8 +5,8 @@
   flake.modules.nixos.plasma = { pkgs, inputs, ... }: {
 
     # KDE Plasma 6
-    services.displayManager.sddm.enable = true;
-    services.displayManager.sddm.wayland.enable = true;
+    # services.displayManager.sddm.enable = true;
+    # services.displayManager.sddm.wayland.enable = true;
     services.desktopManager.plasma6.enable = true;
     security.rtkit.enable = true;
     services.flatpak.enable = true;

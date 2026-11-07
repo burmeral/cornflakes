@@ -10,18 +10,17 @@
     ./_shell.nix
 
   # environment packages
-  # ../../environments/sddm/_imports.nix
     ../../environments/plasma/_imports.nix
 
   # user apps
     ./_audacious.nix
     ./_spicetify.nix
     ./_browser.nix
-    # ./_zen.nix
     ./_herdr.nix
-    ./_otter.nix
     ./_colors.nix
     ./_inf.nix
+    # ./_zen.nix
+    # ./_otter.nix
   ];
 
   home.username = username;
