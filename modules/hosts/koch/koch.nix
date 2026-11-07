@@ -55,11 +55,12 @@
 
       # sandbox
       vm
+      eng
 
       # utilities
       terminal
-      reader
       nvim
+      reader
 
       # media tools
       art

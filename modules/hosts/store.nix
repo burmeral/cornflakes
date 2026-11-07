@@ -21,13 +21,14 @@
       };
     };
 
-    # enable appimage support
+    # Enable appimage support
     programs.appimage.enable = true;
     programs.appimage.binfmt = true;
 
-    # allow unfree packages
+    # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
+    # Security risks
     nixpkgs.config.permittedInsecurePackages = [
       "electron-40.10.5"
       "pnpm-9.15.9"

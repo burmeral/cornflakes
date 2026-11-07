@@ -5,7 +5,7 @@
   flake.modules.nixos.applefonts = { pkgs, inputs, ... }: {
 
   fonts.packages = [
-    inputs.apple-fonts.packages.${pkgs.system}.sf-pro
+    inputs.apple-fonts.packages.${pkgs.stdenv.hostPlatform.system}.sf-pro
   ];
 
     fonts.fontconfig = {

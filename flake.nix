@@ -24,6 +24,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    kwin-effects-better-blur-dx = {
+      url = "github:xarblu/kwin-effects-better-blur-dx";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    apple-fonts = {
+      url = "github:Lyndeno/apple-fonts.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
     jovian = {
       url = "github:Jovian-Experiments/Jovian-NixOS";
@@ -35,41 +45,28 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     otter-launcher = {
       url = "github:kuokuo123/otter-launcher";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    kwin-effects-better-blur-dx = {
-      url = "github:xarblu/kwin-effects-better-blur-dx";
+    herdr-nix = {
+      url = "github:kevinpita/herdr-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    apple-fonts = {
-      url = "github:Lyndeno/apple-fonts.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+    vim-herdr-navigation = {
+      url = "github:paulbkim-dev/vim-herdr-navigation";
+      flake = false;
     };
 
-#    dms = {
-#      url = "github:AvengeMedia/DankMaterialShell/stable";
-#      inputs.nixpkgs.follows = "nixpkgs";
-#    };
-
-#    dms-plugin-registry = {
-#      url = "github:AvengeMedia/dms-plugin-registry";
-#      inputs.nixpkgs.follows = "nixpkgs";
-#    };
-
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
-    };
-
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
+    eden-nix = {
+      url = "github:Daaboulex/eden-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -77,6 +74,15 @@
       url ="github:bugzmanov/bookokrat";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # zen-browser = {
+    #   url = "github:0xc000022070/zen-browser-flake";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #     home-manager.follows = "home-manager";
+    #   };
+    # };
+
   };
 
   outputs = inputs:

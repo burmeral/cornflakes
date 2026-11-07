@@ -5,8 +5,9 @@
 {
   imports = [
     ./plugins/_wavetask.nix
+    # ./plugins/_eqsh.nix
     ./plugins/_fonts.nix
     ./wallpaper/_wallpaper.nix
-  # ./wallpaper/_screen.nix
+    # ./wallpaper/_screen.nix
   ];
 }

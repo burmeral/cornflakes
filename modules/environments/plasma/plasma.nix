@@ -27,7 +27,7 @@
       gnumake
       libxcb
       libxkbcommon
-      inputs.kwin-effects-better-blur-dx.packages.${pkgs.system}.default
+      inputs.kwin-effects-better-blur-dx.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 }

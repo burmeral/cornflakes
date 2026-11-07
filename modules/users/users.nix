@@ -14,7 +14,7 @@ let
       users.users.${username} = {
         isNormalUser = true;
         description  = username;
-        extraGroups  = [ "networkmanager" "video" "render" "input" ]
+        extraGroups  = [ "networkmanager" "video" "render" "input" "audio" ]
           ++ lib.optional wheel "wheel";
       };
 

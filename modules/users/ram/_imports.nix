@@ -14,13 +14,14 @@
     ../../environments/plasma/_imports.nix
 
   # user apps
-    ./_ryubin.nix
     ./_audacious.nix
     ./_spicetify.nix
-    ./_zen.nix
+    ./_browser.nix
+    # ./_zen.nix
+    ./_herdr.nix
+    ./_otter.nix
     ./_colors.nix
     ./_inf.nix
-    ./_otter.nix
   ];
 
   home.username = username;
@@ -31,15 +32,22 @@
     vesktop
     obsidian
     anki-bin
+    grayjay
   ];
 
   # cursor
   home.pointerCursor = {
     enable = true;
-    name = "Apple";
+    name = "macOS";
     package = pkgs.apple-cursor;
-    size = 24;
+    size = 28;
     gtk.enable = true;
+  };
+
+  gtk.cursorTheme = {
+    name = "macOS";
+    package = pkgs.apple-cursor;
+    size = 28;
   };
 
   # easyeffects

@@ -11,7 +11,12 @@
       # services
       mpd
       mpc
-      rmpc
+
+      # players
+
+      # rmpc
+      cmus
+      cmusfm
 
       # formater
       ffmpeg

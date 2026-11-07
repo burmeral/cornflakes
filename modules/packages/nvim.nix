@@ -17,6 +17,8 @@
       tectonic    # pretty math
       ghostscript # boo! It's a pdf! D:
       mermaid-cli # and they didn't invite sirens?
+      nil         # go girl... give us nothing
+      alejandra   # go girl... give us something
 
     ];
   };

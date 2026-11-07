@@ -6,7 +6,7 @@
 
   # spicetify
   programs.spicetify = let
-    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
   in {
     enable = true;
     spotifyPackage = pkgs.spotify;
@@ -19,7 +19,7 @@
           owner = "ivLis-Studio";
           repo = "ivLyrics";
           rev = "main";
-          hash = "sha256-+zaKDQ6DRNn1yV3bJUnF2he3YMCMDQRD8vAyQ3MS3pY=";
+          hash = "sha256-KPEeZEAZ6UXVZDmhPI3uQeF2OmWzjXf/dQOwVlKmLRM=";
         };
         name = "ivLyrics";
       }
@@ -32,7 +32,7 @@
       volumePercentage      # volume percentage
       shuffle               # shuffle+
       playlistIcons         # playlist icons
-      betterGenres          # better spotify genres
+      # betterGenres          # better spotify genres
       lastfm                # lastfm stats
       aiBandBlocker         # ai band blocker
       romajiConvert         # convert japanese
@@ -61,7 +61,7 @@
        owner = "spicetify";
        repo = "spicetify-marketplace";
        rev = "main";
-       hash = "sha256-csHVClIfSjdquLRcAUAI8VIKLZrlQmkhiudYvD5LcgU=";
+       hash = "sha256-Pymokvth/mCzct451x+5fJO2BcHiflkF1cJcIW+0XqY=";
      };
      injectCss = true;
      replaceColors = false;

@@ -7,7 +7,7 @@
   imports = [
 
   # user apps
-    ./_zen.nix
+    # ./_zen.nix
 
   ];
 

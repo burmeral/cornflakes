@@ -4,7 +4,20 @@
 {
   flake.modules.nixos.emulation = { pkgs, ... }: {
 
+    # Switch
+
+    imports = [
+      inputs.eden-nix.nixosModules.default
+    ];
+
+    nixpkgs.overlays = [
+      inputs.eden-nix.overlays.default
+    ];
+
+    programs.eden.enable = true;
+
     environment.systemPackages = with pkgs; [
+
       # GameCube/Wii
       dolphin-emu
 

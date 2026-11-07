@@ -3,7 +3,7 @@
   { inputs, pkgs, ... }:
 let
   infiniteDesktop =
-    inputs.self.packages.${pkgs.system}.hyprland-infinite-desktop;
+    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-infinite-desktop;
 in
 {
   home.packages = [

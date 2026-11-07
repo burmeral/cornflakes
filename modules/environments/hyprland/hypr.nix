@@ -13,6 +13,15 @@
       # Wallpaper
       awww 
 
+      # Widgets
+      inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+      # Shaders
+      hyprshade
+
+      # Notifications
+      swaynotificationcenter 
+
       # Screen capture
       slurp
       swappy
@@ -27,7 +36,7 @@
       libqalculate
       brightnessctl
       ddcutil
-      
+
       # Fonts
       rubik
       twemoji-color-font
