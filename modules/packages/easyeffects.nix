@@ -10,7 +10,7 @@
       mda_lv2
       zam-plugins
       dragonfly-reverb
-      eq10q
+      # eq10q
     ];
     # Required for EasyEffects plugin discovery
     programs.dconf.enable = true;

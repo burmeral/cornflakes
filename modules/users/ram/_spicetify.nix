@@ -19,7 +19,7 @@
           owner = "ivLis-Studio";
           repo = "ivLyrics";
           rev = "main";
-          hash = "sha256-KPEeZEAZ6UXVZDmhPI3uQeF2OmWzjXf/dQOwVlKmLRM=";
+          hash = "sha256-pun2oMTOeM5Z58Ucbe6nbLcAcrgtUvQU2M5StS64IMI=";
         };
         name = "ivLyrics";
       }
@@ -61,7 +61,7 @@
        owner = "spicetify";
        repo = "spicetify-marketplace";
        rev = "main";
-       hash = "sha256-Pymokvth/mCzct451x+5fJO2BcHiflkF1cJcIW+0XqY=";
+       hash = "sha256-LJjFUM0UQJIDZf3TMpvSePkJAfQZ8N9by0PQfa6buSI=";
      };
      injectCss = true;
      replaceColors = false;
